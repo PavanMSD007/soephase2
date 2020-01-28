@@ -53,7 +53,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Azure CLI '
   inputs:
-    azureSubscription: 'Microsoft Azure Internal Consumption (bc16117b-02f2-49ce-b61f-9349ea8dee86)'
+    azureSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
     scriptType: batch
     scriptLocation: inlineScript
     inlineScript: |
