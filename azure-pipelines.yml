@@ -9,9 +9,6 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(agent.builddirectory)'
@@ -61,7 +58,4 @@ steps:
     inlineScript: |
      call az --version
      call az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "$(imageUri)" --admin-password "$(adminpw)"
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
