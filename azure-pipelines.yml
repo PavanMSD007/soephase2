@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+- group: ready2020
+
 steps:
 - task: CopyFiles@2
   inputs:
