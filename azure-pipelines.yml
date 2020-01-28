@@ -34,7 +34,7 @@ steps:
   inputs:
     imageSource: 'marketplace'
     baseImage: 'OpenLogic:CentOS:7.6:linux'
-    packagePath: '$(System.DefaultWorkingDirectory)/_prarolab_soephase2'
+    packagePath: '_prarolab_soephase2'
     inlineScript: |
       cd /tmp
       sudo wget https://msreadylabs.blob.core.windows.net/workshop/soelab2.sh
