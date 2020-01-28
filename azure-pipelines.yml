@@ -13,12 +13,6 @@ variables:
 - group: ready2020
 
 steps:
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(agent.builddirectory)'
-    Contents: '**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-    OverWrite: true
 - task: AzureCLI@2 # Update permission for spn (using azcli)
   displayName: 'Provide the SPN access to keyvault'
   inputs:
@@ -41,7 +35,7 @@ steps:
   inputs:
     imageSource: 'marketplace'
     baseImage: 'OpenLogic:CentOS:7.6:linux'
-    packagePath: '$(System.DefaultWorkingDirectory)'
+    
     inlineScript: |
       cd /tmp
       sudo wget https://msreadylabs.blob.core.windows.net/workshop/soelab2.sh
@@ -61,5 +55,5 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
      call az --version
-     call az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "/subscriptions/$(subscriptionId)/resourceGroups/$(alias)-ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03" --admin-password "$(adminpw)"
+     call az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03" --admin-password "$(adminpw)"
 
