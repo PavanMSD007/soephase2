@@ -30,6 +30,7 @@ steps:
     KeyVaultName: 'ready20-kv'
     SecretsFilter: '*'
 
+
 - task: AzureImageBuilderTask@1
   inputs:
     imageSource: 'marketplace'
