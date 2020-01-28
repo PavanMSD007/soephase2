@@ -17,7 +17,7 @@ steps:
   displayName: 'Provide the SPN access to keyvault'
   inputs:
     connectionType: 'Azure Resource Manager'
-    azureSubscription: 'KeyVault-Service-Principal'
+    azureSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript:    
