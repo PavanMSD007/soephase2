@@ -19,6 +19,21 @@ steps:
     KeyVaultName: 'ready20-kv'
     SecretsFilter: '*'
 
+- task: AzureImageBuilderTask@1
+  inputs:
+    imageSource: 'marketplace'
+    baseImage: 'OpenLogic:CentOS:7.6:linux'
+    packagePath: '$(System.DefaultWorkingDirectory)/_prarolab_soephase2'
+    inlineScript: |
+      cd /tmp
+      sudo wget https://msreadylabs.blob.core.windows.net/workshop/soelab2.sh
+      sudo sh soelab2.sh
+    storageAccountName: 'reay2020test'
+    imageIdForDistribute: '/subscriptions/bc16117b-02f2-49ce-b61f-9349ea8dee86/resourceGroups/ready20/providers/Microsoft.Compute/images/grkumar-task2-image03'
+    managedImageLocation: 'westus'
+    ibSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
+    ibAzureResourceGroup: 'ready20'
+    ibLocation: 'westus'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
