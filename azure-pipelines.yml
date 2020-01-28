@@ -44,7 +44,7 @@ steps:
       sudo wget https://msreadylabs.blob.core.windows.net/workshop/soelab2.sh
       sudo sh soelab2.sh
     storageAccountName: 'reay2020test'
-    imageIdForDistribute: '/subscriptions/bc16117b-02f2-49ce-b61f-9349ea8dee86/resourceGroups/ready20/providers/Microsoft.Compute/images/grkumar-task2-image03'
+    imageIdForDistribute: '/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03'
     managedImageLocation: 'westus'
     ibSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
     ibAzureResourceGroup: 'ready20'
@@ -58,5 +58,5 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
      call az --version
-     call az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "$(imageUri)" --admin-password "$(adminpw)"
+     call az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "/subscriptions/$(subscriptionId)/resourceGroups/$(alias)-ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03" --admin-password "$(adminpw)"
 
