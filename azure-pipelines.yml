@@ -52,6 +52,15 @@ steps:
     ibAzureResourceGroup: 'ready20'
     ibLocation: 'westus'
 
+- task: AzureCLI@2
+  displayName: 'Azure CLI '
+  inputs:
+    azureSubscription: 'Microsoft Azure Internal Consumption (bc16117b-02f2-49ce-b61f-9349ea8dee86)'
+    scriptType: batch
+    scriptLocation: inlineScript
+    inlineScript: |
+     call az --version
+     call az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "$(imageUri)" --admin-password "$(adminpw)"
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
