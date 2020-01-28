@@ -12,7 +12,12 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(agent.builddirectory)'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    OverWrite: true
 - task: AzureCLI@2 # Update permission for spn (using azcli)
   displayName: 'Provide the SPN access to keyvault'
   inputs:
