@@ -47,13 +47,13 @@ steps:
     ibAzureResourceGroup: 'ready20'
     ibLocation: 'westus'
 
-- task: AzureCLI@2
+- task: AzureCLI@1
   displayName: 'Azure CLI '
   inputs:
     azureSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
-    scriptType: batch
+    
     scriptLocation: inlineScript
     inlineScript: |
-     call az --version
-     call az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03" --admin-password "$(adminpw)"
+      az --version
+      az vm create --resource-group "ready20" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03" --admin-password "$(adminpw)"
 
