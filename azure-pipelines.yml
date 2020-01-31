@@ -26,7 +26,7 @@ steps:
     enabled: true
 - task: AzureKeyVault@1
   inputs:
-    azureSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
+    azureSubscription: '$(serviceconnection)'
     KeyVaultName: 'ready20-kv'
     SecretsFilter: '*'
 
@@ -43,14 +43,14 @@ steps:
     storageAccountName: 'reay2020test'
     imageIdForDistribute: '/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03'
     managedImageLocation: 'westus'
-    ibSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
+    ibSubscription: '$(serviceconnection)'
     ibAzureResourceGroup: 'ready20'
     ibLocation: 'westus'
 
 - task: AzureCLI@1
   displayName: 'Azure CLI '
   inputs:
-    azureSubscription: 'Microsoft Azure Internal Consumption(bc16117b-02f2-49ce-b61f-9349ea8dee86)'
+    azureSubscription: '$(serviceconnection)'
     
     scriptLocation: inlineScript
     inlineScript: |
