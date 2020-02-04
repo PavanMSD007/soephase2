@@ -42,10 +42,10 @@ steps:
       sudo sh soelab2.sh
     storageAccountName: '$(alias)storageac001'
     imageIdForDistribute: '/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03'
-    managedImageLocation: 'westus'
+    managedImageLocation: 'eastus'
     ibSubscription: '$(serviceconnection)'
     ibAzureResourceGroup: '$(alias)-vmimages-rg'
-    ibLocation: 'westus'
+    ibLocation: 'eastus'
 
 - task: AzureCLI@1
   displayName: 'Azure CLI '
