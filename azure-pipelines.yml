@@ -41,7 +41,7 @@ steps:
       sudo wget https://msreadylabs.blob.core.windows.net/workshop/soelab2.sh
       sudo sh soelab2.sh
     storageAccountName: '$(alias)storageac001'
-    imageIdForDistribute: '/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03'
+    imageIdForDistribute: '/subscriptions/$(subscriptionId)/resourceGroups/$(alias)-vmimages-rg/providers/Microsoft.Compute/images/$(alias)-task3-image03'
     managedImageLocation: 'eastus'
     ibSubscription: '$(serviceconnection)'
     ibAzureResourceGroup: '$(alias)-vmimages-rg'
@@ -55,5 +55,5 @@ steps:
     scriptLocation: inlineScript
     inlineScript: |
       az --version
-      az vm create --resource-group "$(alias)-vmimages-rg" --name myAibGalleryVM --admin-username "$(adminuser)" --location "westus" --image "/subscriptions/$(subscriptionId)/resourceGroups/ready20/providers/Microsoft.Compute/images/$(alias)-task2-image03" --admin-password "$(adminpw)"
+      az vm create --resource-group "$(alias)-vmimages-rg" --name $(alias)-adoVM --admin-username "$(adminuser)" --location "eastus" --image "/subscriptions/$(subscriptionId)/resourceGroups/$(alias)-vmimages-rg/providers/Microsoft.Compute/images/$(alias)-task3-image03" --admin-password "$(adminpw)"
 
